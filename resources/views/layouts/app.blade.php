@@ -86,15 +86,15 @@
     
 
 
-
+{{-- Auth::user()->name --}}
 
 
 <script type="text/javascript">
         window.onload = () => {
             const api = new JitsiMeetExternalAPI("8x8.vc", {
-                roomName: "vpaas-magic-cookie-b72a143efed24a1cacc15165973e4565/{{ Auth::user()->name }}", 
-      width: 500,
-      height: 500,
+                roomName: "vpaas-magic-cookie-b72a143efed24a1cacc15165973e4565/Evets-Room", 
+      width: 700,
+      height: 700,
                 parentNode: document.querySelector('#jaas-container'),
                 release: "release-5218"
             });
