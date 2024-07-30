@@ -79,7 +79,7 @@
        <div id="loginAdvanced" class="login-modal ng-scope" data-ng-controller="PartnerSearchCtrl">
          <header>
            <h3>
-            NexGen Virtual Office - Guest Login
+            Virtual Office - Guest Login
            </h3>
          </header>
 
