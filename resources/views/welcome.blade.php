@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>NexGen Virtual Office</title>
+        <title>Office</title>
 
 
 
@@ -20,7 +20,7 @@
 
         <style>
         body {
-            background-image: url('nexgen_building.jpg');
+            background-image: url('pexels-rickyrecap-1666667.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -39,7 +39,7 @@
     z-index: 499;
     border-radius: 10px;
     background-color: white;
-    width: 50%;    
+    width: 50%;
     position: absolute;
     text-align: center;
     min-width: 650px;
@@ -74,7 +74,7 @@
     </style>
     </head>
     <body class="antialiased">
-      
+
 
        <div id="loginAdvanced" class="login-modal ng-scope" data-ng-controller="PartnerSearchCtrl">
          <header>
@@ -84,18 +84,18 @@
          </header>
 
  @if (Route::has('login'))
-                
+
                     @auth
                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
-                        @if (Route::has('register'))  
+                        @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
                         @endif
                     @endauth
-               
-           
+
+
 
 
  @endif
@@ -156,7 +156,7 @@
 
 
 
-    
+
 </div>
     </body>
 </html>

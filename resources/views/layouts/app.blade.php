@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Evets.Pet</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -79,21 +79,14 @@
             margin-left: 0.5rem;
         }
     </style>
-
-
     <script src='https://8x8.vc/vpaas-magic-cookie-b72a143efed24a1cacc15165973e4565/external_api.js?release=release-5218' async></script>
     <style>html, body, #jaas-container { width: 100%; }</style>
-    
-
-
 {{-- Auth::user()->name --}}
-
-
 <script type="text/javascript">
         window.onload = () => {
             const api = new JitsiMeetExternalAPI("8x8.vc", {
-                roomName: "vpaas-magic-cookie-b72a143efed24a1cacc15165973e4565/Evets-Room", 
-      width: 700,
+                roomName: "vpaas-magic-cookie-b72a143efed24a1cacc15165973e4565/Evets-Room",
+
       height: 700,
                 parentNode: document.querySelector('#jaas-container'),
                 release: "release-5218"
@@ -102,18 +95,11 @@
     </script>
 
 
-
-
-
-
-
-
-
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans antialiased">
-   
+
 
     <div class="min-h-screen bg-gray-100">
         @include('layouts.navigation')
@@ -145,7 +131,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg modal-resizable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="jaasModalLabel">Office</h5>
+                    <h5 class="modal-title" id="jaasModalLabel">Evets.Pet</h5>
                     <button type="button" class="btn btn-secondary" id="minimizeBtn" title="Minimize"><i class="fas fa-window-minimize"></i></button>
                     <button type="button" class="btn btn-secondary" id="maximizeBtn" title="Maximize"><i class="fas fa-window-maximize"></i></button>
                     <button type="button" class="btn btn-secondary d-none" id="restoreBtn" title="Restore"><i class="fas fa-window-restore"></i></button>
@@ -158,14 +144,10 @@
         </div>
     </div>
 
-
-
-
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+
     <script>
         $(document).ready(function() {
             let isFullscreen = false;
