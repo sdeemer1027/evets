@@ -1,1 +1,1 @@
-<img src="logoalien.jpg" width="175px;">
+<img src="/srdlogo.png" width="175px;">

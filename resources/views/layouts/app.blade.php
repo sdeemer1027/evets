@@ -82,17 +82,23 @@
     <script src='https://8x8.vc/vpaas-magic-cookie-b72a143efed24a1cacc15165973e4565/external_api.js?release=release-5218' async></script>
     <style>html, body, #jaas-container { width: 100%; }</style>
 {{-- Auth::user()->name --}}
+
+
 <script type="text/javascript">
         window.onload = () => {
             const api = new JitsiMeetExternalAPI("8x8.vc", {
                 roomName: "vpaas-magic-cookie-b72a143efed24a1cacc15165973e4565/Evets-Room",
-
-      height: 700,
+                configOverwrite: { toolbarButtons: ['hangup', 'microphone', 'camera'],
+                    logoImageUrl: "/srdlogo.png",
+                },
+                height: 700,
                 parentNode: document.querySelector('#jaas-container'),
                 release: "release-5218"
             });
+
         }
     </script>
+
 
 
     <!-- Scripts -->
