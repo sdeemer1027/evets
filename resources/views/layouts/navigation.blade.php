@@ -5,37 +5,43 @@
         <div class="flex justify-between">
                 <!-- Left -->
                 <div class="shrink-0 flex items-center">
-                    <a  class="btn" href="{{ route('dashboard') }}"><i class="fas fa-home"></i></a>     
+                    <a  class="btn" href="{{ route('dashboard') }}"><i class="fas fa-home"></i></a>
                     <a class="btn" href="#"><i class="fas fa-lock-open"></i></a>
                     <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#jaasModal"><i class="fas fa-phone"></i></a>
                     <a class="btn" href="#"><i class="fas fa-walking"></i></a>
                 </div>
                 <!-- Center -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex items-center">
+                    @guest
+                       You are viewing Dr.Steve as a guest. 
+                    @else
+
+
                     <x-nav-link :href="route('profile.edit')" :active="request()->routeIs('dashboard')">
                        {{ Auth::user()->name }}
                     </x-nav-link>
+                    @endguest
                 </div>
-            
+
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                <i class="fas fa-search"></i> &nbsp;
-{{-- 
+{{--
                         <a class="nav-link" href="{{ route('jitsi.index') }}">{{ __('My Jitsi Room') }}</a>
- --}}                 
+ --}}
 
 <!-- Button to trigger modal -->
 <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#imageModal">
   <i class="fas fa-map"></i>&nbsp;
 </a>
-           
+
                 <a class="btn" href="#"><i class="fab fa-intercom"></i></a>
                 <a class="btn" href="#"><i class="fas fa-comment-alt"></i></a>
                 <a class="btn" href="#"><i class="fas fa-tools"></i></a>
                   <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <x-dropdown-link :href="route('logout')" 
+                            <x-dropdown-link :href="route('logout')"
                                onclick="event.preventDefault();
                                  this.closest('form').submit();"> <i class="fas fa-power-off"></i>
                             </x-dropdown-link>
@@ -74,8 +80,15 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
+
+                @guest
+
+                @else
+
+
                 <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                @endguest
             </div>
 
             <div class="mt-3 space-y-1">
@@ -99,7 +112,7 @@
 
     </div>
 
-   
+
 </nav>
 
 
