@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -20,6 +22,22 @@ class ProfileController extends Controller
             'user' => $request->user(),
         ]);
     }
+
+
+
+    public function show($id)
+    {
+        // Fetch the user by ID
+        $user = User::findOrFail($id);
+
+        // Pass the user data to the view
+        return view('profile.show', compact('user'));
+    }
+
+
+
+
+
 
 
     public function showsteve(Request $request): View

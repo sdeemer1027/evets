@@ -7,7 +7,9 @@
                 <div class="shrink-0 flex items-center">
                     <a  class="btn" href="{{ route('dashboard') }}"><i class="fas fa-home"></i></a>
                     <a class="btn" href="#"><i class="fas fa-lock-open"></i></a>
+                    {{--
                     <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#jaasModal"><i class="fas fa-phone"></i></a>
+                    --}}
                     <a class="btn" href="#"><i class="fas fa-walking"></i></a>
                 </div>
                 <!-- Center -->

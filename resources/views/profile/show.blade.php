@@ -1,12 +1,4 @@
 <x-app-layout>
-{{--
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>Evets-Room
-    </x-slot>
---}}
-
     <style>
         body, html {
             margin: 0;
@@ -69,7 +61,7 @@
     <script type="text/javascript">
         window.onload = () => {
             const api = new JitsiMeetExternalAPI("8x8.vc", {
-                roomName: "vpaas-magic-cookie-b72a143efed24a1cacc15165973e4565/{{ Auth::user()->name }}",
+                roomName: "vpaas-magic-cookie-b72a143efed24a1cacc15165973e4565/{{$user->name}}",
  //               configOverwrite: { toolbarButtons: ['hangup', 'microphone', 'camera'],
 //
 //                },
@@ -89,12 +81,16 @@
         <div class="mx-auto sm:px-6 lg:px-8">
             <div class="bg-light-grey-transparent overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}<br><br><rb><br><br>
+                    {{ __("You're logged in!") }} Into {{$user->name}} <br>{{$user}}<br><rb><br><br>
 
                         <div id="jaas-container">
                             <div id="jaas-container-header">Move Me</div>
                             <!-- Add your content here -->
                         </div>
+
+
+
+
                 </div>
             </div>
         </div>
