@@ -33,7 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 // routes/web.php
-//Route::get('/drsteve', [ProfileController::class, 'showsteve'])->name('profile.show');
+Route::get('/drsteve', [ProfileController::class, 'showsteve'])->name('profile.show');
 //use App\Http\Controllers\ProfileController;
 
 Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile.show');

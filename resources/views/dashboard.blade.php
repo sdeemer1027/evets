@@ -1,11 +1,5 @@
 <x-app-layout>
-{{--
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>Evets-Room
-    </x-slot>
---}}
+
 
     <style>
         body, html {
@@ -104,7 +98,8 @@
 
 
     <!-- Interact.js Library -->
-    <script src="https://cdn.jsdelivr.net/npm/@interactjs/interactjs/dist/interact.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.11/dist/interact.min.js"></script>
+
     <script>
         // Enable dragging and resizing
         interact('#jaas-container')
