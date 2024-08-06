@@ -1,38 +1,33 @@
 <x-app-layout>
-
-
     <style>
         body, html {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            height: 100%; /* Ensure html and body take full height */
         }
         .py-1 {
             padding-top: 1rem;
             padding-bottom: 1rem;
         }
-        .mx-auto {
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .sm\\:px-6 {
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-        }
-        .lg\\:px-8 {
-            padding-left: 2rem;
-            padding-right: 2rem;
+        .main-container {
+            width: 90%;
+            height: 90%;
+            margin: 0 auto; /* Center horizontally */
+            position: absolute;
+            top: 50%; /* Center vertically */
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center vertically and horizontally */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .bg-light-grey-transparent {
             background-color: rgba(211, 211, 211, 0.5);
-        }
-        .overflow-hidden {
+            width: 100%;
+            height: 100%;
             overflow: hidden;
-        }
-        .shadow-sm {
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        }
-        .sm\\:rounded-lg {
             border-radius: 0.5rem;
         }
         .p-6 {
@@ -42,69 +37,75 @@
             color: #1a202c;
         }
         #jaas-container {
-            width: 200px;
-            height: 150px;
-            background-color: lightblue;
+            width: 95%;
+            height: 95%;
+            background-color: white;
             border: 1px solid #ccc;
             resize: both;
             overflow: auto;
             position: absolute; /* Absolute positioning for movement */
         }
-        #jaas-container-header {
-            background-color: darkblue;
+        #modal-container {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        #modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #333;
             color: white;
             padding: 5px;
-            cursor: move; /* Indicate that it is movable */
+            cursor: move;
+        }
+        #modal-content {
+            padding: 10px;
         }
     </style>
 
+    {{-- Just comment out this for now --}}
     <script src='https://8x8.vc/vpaas-magic-cookie-b72a143efed24a1cacc15165973e4565/external_api.js?release=release-5218' async></script>
 
     <script type="text/javascript">
         window.onload = () => {
             const api = new JitsiMeetExternalAPI("8x8.vc", {
                 roomName: "vpaas-magic-cookie-b72a143efed24a1cacc15165973e4565/{{ Auth::user()->name }}",
- //               configOverwrite: { toolbarButtons: ['hangup', 'microphone', 'camera'],
-//
-//                },
-//                logoImageUrl: "/srdlogo.png",
-               // height: 700,
                 parentNode: document.querySelector('#jaas-container'),
                 release: "release-5218"
             });
-
         }
     </script>
 
-
-
-
-    <div class="py-1">
-        <div class="mx-auto sm:px-6 lg:px-8">
-            <div class="bg-light-grey-transparent overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}<br><br><rb><br><br>
-
-                        <div id="jaas-container">
-                            <div id="jaas-container-header">Move Me</div>
-                            <!-- Add your content here -->
+    <div class="py-1 main-container">
+        <div class="bg-light-grey-transparent">
+            <div class="p-6 text-gray-900">
+                {{ __("You're logged in!") }}<br><br><rb><br><br>
+                    <div id="modal-container">
+                        <div id="modal-header">
+                            <span id="modal-title">Team Communication</span>
                         </div>
-                </div>
+                        <div id="modal-content">
+                            <!-- Add your content here -->
+                            <div id="jaas-container"></div>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
-
-
-
 
     <!-- Interact.js Library -->
     <script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.11/dist/interact.min.js"></script>
 
     <script>
         // Enable dragging and resizing
-        interact('#jaas-container')
+        interact('#modal-container')
             .draggable({
-                handle: '#jaas-container-header', // Make the header the handle for dragging
+                handle: '#modal-header', // Make the header the handle for dragging
                 listeners: {
                     move(event) {
                         const target = event.target;
