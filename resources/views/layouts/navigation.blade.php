@@ -28,7 +28,7 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
-               <i class="fas fa-search"></i> &nbsp;
+               <a href="/others"><i class="fas fa-search"></i></a> &nbsp;
 {{--
                         <a class="nav-link" href="{{ route('jitsi.index') }}">{{ __('My Jitsi Room') }}</a>
  --}}

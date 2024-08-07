@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
 
 use App\Http\Controllers\JitsiController;
-
+use App\Http\Controllers\OthersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
 // routes/web.php
 Route::get('/drsteve', [ProfileController::class, 'showsteve'])->name('profile.show');
 //use App\Http\Controllers\ProfileController;
+Route::get('/others', [OthersController::class, 'index'])->name('others.index');
 
 Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile.show');
 
