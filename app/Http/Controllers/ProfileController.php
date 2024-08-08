@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Mail\UserWaitingNotification;
+use Illuminate\Support\Facades\Mail;
 
 class ProfileController extends Controller
 {
@@ -29,6 +31,17 @@ class ProfileController extends Controller
     {
         // Fetch the user by ID
         $user = User::findOrFail($id);
+
+ /* This Will Send mail
+        if ($user->isOnline()) {
+            Mail::send([], [], function ($message) use ($user) {
+                $message->to($user->email)
+                    ->subject('I am waiting for you online')
+                    ->html('Hello ' . $user->name . ', I am waiting for you online. Visit your dashboard to find me http://127.0.0.1:8000/dashboard');
+            });
+        }
+*/
+
 
         // Pass the user data to the view
         return view('profile.show', compact('user'));

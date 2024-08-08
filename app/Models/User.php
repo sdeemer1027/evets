@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'last_activity',
     ];
 
     /**
@@ -40,5 +41,18 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'last_activity' => 'datetime',
     ];
+
+
+    public function isOnline()
+    {
+        $lastActivity = $this->last_activity;
+        if ($lastActivity) {
+            return $lastActivity->gt(now()->subMinutes(5));
+        }
+        return false;
+    }
+
+
 }

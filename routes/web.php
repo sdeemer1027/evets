@@ -7,6 +7,7 @@ use App\Http\Controllers\GoogleController;
 
 use App\Http\Controllers\JitsiController;
 use App\Http\Controllers\OthersController;
+//use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+
+//Route::get('/notify-user/{id}', [UserController::class, 'notifyUserIfOnline']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -35,7 +41,7 @@ Route::middleware('auth')->group(function () {
 // routes/web.php
 Route::get('/drsteve', [ProfileController::class, 'showsteve'])->name('profile.show');
 //use App\Http\Controllers\ProfileController;
-Route::get('/others', [OthersController::class, 'index'])->name('others.index');
+Route::get('/others', [OthersController::class, 'index'])->middleware(['auth', 'verified'])->name('others.index');
 
 Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile.show');
 
